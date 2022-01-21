@@ -3,7 +3,12 @@ import localUrl from "./api/Api";
 
 function App() {
   const getReq = async () => {
-    const data = await localUrl.get("/");
+    const data = await localUrl.get("/users");
+    console.log(data.data);
+  };
+
+  const getReqToo = async () => {
+    const data = await localUrl.get("/api");
     console.log(data.data);
   };
 
@@ -12,6 +17,7 @@ function App() {
       Hey world hey girrrl!!!
       <div>
         <button onClick={getReq}>click</button>
+        <button onClick={getReqToo}>clickToo</button>
       </div>
     </div>
   );
