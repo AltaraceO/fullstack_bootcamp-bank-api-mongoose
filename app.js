@@ -7,8 +7,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(userRouter);
+
 const publicPath = path.join(__dirname, "client/bulid");
 app.use(express.static(publicPath));
+
 app.get("/api", (req, res) => {
   res.send("working girl!");
 });
