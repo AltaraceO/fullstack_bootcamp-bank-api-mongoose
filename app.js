@@ -3,10 +3,17 @@ require("./mongo/mongoose");
 const cors = require("cors");
 const path = require("path");
 const userRouter = require("./routers/users");
+const singleUser = require("./routers/user");
+const depositRouter = require("./routers/deposit");
+const withdrawalRouter = require("./routers/withdrawal");
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 app.use(userRouter);
+app.use(singleUser);
+app.use(depositRouter);
+app.use(withdrawalRouter);
 
 const publicPath = path.join(__dirname, "client/build");
 
