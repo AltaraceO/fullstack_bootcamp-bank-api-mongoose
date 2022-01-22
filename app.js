@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 app.use(userRouter);
 
-const publicPath = path.join(__dirname, "client/bulid");
+const publicPath = path.join(__dirname, "client/build");
 console.log(publicPath, "HERE");
 app.use(express.static(publicPath));
 
@@ -16,8 +16,8 @@ app.get("/api", (req, res) => {
   res.send("It's working!");
 });
 
-app.use("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(publicPath, "index.html"));
 });
 
 const PORT = process.env.PORT || 5000;

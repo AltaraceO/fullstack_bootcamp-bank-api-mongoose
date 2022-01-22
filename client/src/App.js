@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import localUrl from "./api/Api";
 
 function App() {
