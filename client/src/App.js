@@ -1,6 +1,8 @@
 // import "./App.css";
 import localUrl from "./api/Api";
 import { Home } from "./components/Home";
+import { NavBar } from "./components/NavBar";
+import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
   const getReq = async () => {
@@ -15,7 +17,12 @@ function App() {
 
   return (
     <div className="App">
-      <Home />
+      <BrowserRouter>
+        <NavBar />
+        <Route>
+          <Home exact path="/" />
+        </Route>
+      </BrowserRouter>
       <div>
         <button onClick={getReq}>click</button>
         <button onClick={getReqToo}>clickToo</button>
