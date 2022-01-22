@@ -9,13 +9,14 @@ app.use(cors());
 app.use(userRouter);
 
 const publicPath = path.join(__dirname, "client/bulid");
+console.log(publicPath, "HERE");
 app.use(express.static(publicPath));
 
 app.get("/api", (req, res) => {
   res.send("It's working!");
 });
 
-app.get("/next", (req, res) => {
+app.use("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
