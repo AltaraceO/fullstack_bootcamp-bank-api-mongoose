@@ -9,6 +9,7 @@ app.use(cors());
 app.use(userRouter);
 
 const publicPath = path.join(__dirname, "client/build");
+
 console.log(publicPath, "HERE");
 app.use(express.static(publicPath));
 
