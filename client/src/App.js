@@ -5,16 +5,12 @@ import { NavBar } from "./components/NavBar";
 import { Deposit } from "./components/Deposit";
 import { Withdraw } from "./components/Withdraw";
 import { Transfer } from "./components/Transfer";
+import { Delete } from "./components/Delete";
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
   const getReq = async () => {
     const data = await localUrl.get("/users");
-    console.log(data.data);
-  };
-
-  const getReqToo = async () => {
-    const data = await localUrl.get("/api");
     console.log(data.data);
   };
 
@@ -34,10 +30,12 @@ function App() {
         <Route exact path="/transfer">
           <Transfer />
         </Route>
+        <Route exact path="/delete">
+          <Delete />
+        </Route>
       </BrowserRouter>
       <div>
-        <button onClick={getReq}>click</button>
-        <button onClick={getReqToo}>clickToo</button>
+        <button onClick={getReq}>All users </button>
       </div>
     </div>
   );

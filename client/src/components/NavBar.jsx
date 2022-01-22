@@ -13,6 +13,8 @@ export const NavBar = () => {
       <Link to="/withdrawal/">Withdraw</Link>
       <span> | </span>
       <Link to="/transfer/">Transfer</Link>
+      <span> | </span>
+      <Link to="/delete/">Delete User</Link>
     </div>
   );
 };
