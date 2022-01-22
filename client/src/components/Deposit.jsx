@@ -30,6 +30,7 @@ export const Deposit = () => {
   return (
     <>
       <div>
+        <h3>Deposits</h3>
         <form>
           <label htmlFor="id">User ID</label>
           <br />

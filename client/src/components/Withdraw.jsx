@@ -30,6 +30,7 @@ export const Withdraw = () => {
   return (
     <>
       <div>
+        <h3>Withdrawals</h3>
         <form>
           <label htmlFor="id">User ID</label>
           <br />

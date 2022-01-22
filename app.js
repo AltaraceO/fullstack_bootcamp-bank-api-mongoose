@@ -6,6 +6,7 @@ const userRouter = require("./routers/users");
 const singleUser = require("./routers/user");
 const depositRouter = require("./routers/deposit");
 const withdrawalRouter = require("./routers/withdrawal");
+const transferRouter = require("./routers/transfer");
 const app = express();
 
 app.use(express.json());
@@ -14,6 +15,7 @@ app.use(userRouter);
 app.use(singleUser);
 app.use(depositRouter);
 app.use(withdrawalRouter);
+app.use(transferRouter);
 
 const publicPath = path.join(__dirname, "client/build");
 
