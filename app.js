@@ -12,7 +12,7 @@ const publicPath = path.join(__dirname, "client/bulid");
 app.use(express.static(publicPath));
 
 app.get("/api", (req, res) => {
-  res.send("working girl!");
+  res.send("It's working!");
 });
 
 app.get("/", (req, res) => {

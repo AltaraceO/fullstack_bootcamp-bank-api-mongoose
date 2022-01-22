@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      Hey world hey girrrl!!!
+      Hey world hey!
       <div>
         <button onClick={getReq}>click</button>
         <button onClick={getReqToo}>clickToo</button>
