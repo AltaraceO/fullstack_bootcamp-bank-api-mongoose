@@ -15,7 +15,7 @@ app.get("/api", (req, res) => {
   res.send("It's working!");
 });
 
-app.get("/", (req, res) => {
+app.get("/next", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
