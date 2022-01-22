@@ -1,5 +1,6 @@
 // import "./App.css";
 import localUrl from "./api/Api";
+import { Home } from "./components/Home";
 
 function App() {
   const getReq = async () => {
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      Hey world hey!
+      <Home />
       <div>
         <button onClick={getReq}>click</button>
         <button onClick={getReqToo}>clickToo</button>

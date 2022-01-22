@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const User = mongoose.model("User", {
-  description: {
+  name: {
     required: true,
     type: String,
     trim: true,
