@@ -7,16 +7,12 @@ export const NavBar = () => {
   return (
     <div>
       <Link to="/">New Account</Link>
-      {/* <Link className="nav-button" to="/compare/">
-        Compare States
-      </Link>
-
-      <Link className="nav-button" to="/wanted/">
-        Wanted List
-      </Link>
-      <Link className="nav-button" to="/signup/">
-        Sign up
-      </Link> */}
+      <span> | </span>
+      <Link to="/deposit/">Deposit</Link>
+      <span> | </span>
+      <Link to="/withdrawal/">Withdraw</Link>
+      <span> | </span>
+      <Link to="/transfer/">Transfer</Link>
     </div>
   );
 };
