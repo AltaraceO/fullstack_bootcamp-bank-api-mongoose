@@ -7,11 +7,14 @@ import { Withdraw } from "./components/Withdraw";
 import { Transfer } from "./components/Transfer";
 import { Delete } from "./components/Delete";
 import { BrowserRouter, Route } from "react-router-dom";
+import React, { useState } from "react";
 
 function App() {
+  const [users, setUsers] = useState("");
   const getReq = async () => {
     const data = await localUrl.get("/users");
-    console.log(data.data);
+    setUsers(data.data);
+    console.log(users);
   };
 
   return (
@@ -37,6 +40,19 @@ function App() {
       <div>
         <button onClick={getReq}>All users </button>
       </div>
+      {users &&
+        users.map((e) => {
+          return (
+            <div key={e._id}>
+              <hr />
+              Name:{e.name}
+              <br />
+              Balance:{e.cash}
+              <br />
+              ID:{e._id}
+            </div>
+          );
+        })}
     </div>
   );
 }
