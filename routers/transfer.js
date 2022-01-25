@@ -6,9 +6,6 @@ router.patch("/transfer/:idOne/:idTwo", async (req, res) => {
   try {
     const amount = req.body.cash;
     const first = await User.findOne({ _id: req.params.idOne });
-    // const to = await User.findOne({ _id: req.params.idTwo });
-
-    // console.log(from.cash, from.name, to.cash, to.name);
 
     if (first.credit + first.cash < amount) {
       throw new Error("Not enough credit");

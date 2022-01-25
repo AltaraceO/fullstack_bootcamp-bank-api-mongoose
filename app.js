@@ -1,3 +1,5 @@
+// Env should be at the top of the server side file
+require("dotenv").config({ path: "./config.env" });
 const express = require("express");
 require("./mongo/mongoose");
 const cors = require("cors");
@@ -8,6 +10,7 @@ const depositRouter = require("./routers/deposit");
 const withdrawalRouter = require("./routers/withdrawal");
 const transferRouter = require("./routers/transfer");
 const deleteRouter = require("./routers/delete");
+const adminRouter = require("./routers/admin");
 const app = express();
 
 app.use(express.json());
@@ -18,6 +21,7 @@ app.use(depositRouter);
 app.use(withdrawalRouter);
 app.use(transferRouter);
 app.use(deleteRouter);
+app.use(adminRouter);
 
 const publicPath = path.join(__dirname, "client/build");
 
