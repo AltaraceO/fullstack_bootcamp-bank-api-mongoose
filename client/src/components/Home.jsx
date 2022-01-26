@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import url from "../api/Api";
 
 export const Home = () => {
@@ -6,6 +6,33 @@ export const Home = () => {
   const [cash, setCash] = useState(0);
   const [credit, setCredit] = useState(0);
   const [user, setUser] = useState(false);
+  const [admin, setAdmin] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("authToken")) {
+      setAdmin(true);
+    }
+  }, [admin]);
+
+  const logOutHandler = async (e) => {
+    e.preventDefault();
+    //*tried to send the config alone and there was an issue with the backend seeing the headers Authorization so I created an empty body and sent it along so that the config comes in second
+    const nothing = {
+      bean: "bag",
+    };
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+    };
+
+    try {
+      await url.post("/admin/logoutAll", nothing, config);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
 
   const onHandleChangeName = (e) => {
     setUser(false);
@@ -67,6 +94,7 @@ export const Home = () => {
         />
         <br />
         <button onClick={onHandleSubmit}>submit</button>
+        {admin && <button onClick={logOutHandler}>Logout</button>}
       </form>
       {user && (
         <div>

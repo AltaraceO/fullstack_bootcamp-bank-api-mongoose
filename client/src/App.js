@@ -6,7 +6,8 @@ import { Deposit } from "./components/Deposit";
 import { Withdraw } from "./components/Withdraw";
 import { Transfer } from "./components/Transfer";
 import { Delete } from "./components/Delete";
-import { BrowserRouter, Route } from "react-router-dom";
+import { AdminLogin } from "./components/AdminLogin";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { useState } from "react";
 
 function App() {
@@ -17,26 +18,32 @@ function App() {
     console.log(users);
   };
 
+  // const history
+
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
         <NavBar />
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/deposit">
-          <Deposit />
-        </Route>
-        <Route exact path="/withdrawal">
-          <Withdraw />
-        </Route>
-        <Route exact path="/transfer">
-          <Transfer />
-        </Route>
-        <Route exact path="/delete">
-          <Delete />
-        </Route>
-      </BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/deposit">
+            <Deposit />
+          </Route>
+
+          <Route exact path="/withdrawal" component={Withdraw} />
+          <Route exact path="/transfer">
+            <Transfer />
+          </Route>
+          <Route exact path="/delete">
+            <Delete />
+          </Route>
+          <Route exact path="/admin">
+            <AdminLogin />
+          </Route>
+        </Switch>
+      </Router>
       <div>
         <button onClick={getReq}>All users </button>
       </div>

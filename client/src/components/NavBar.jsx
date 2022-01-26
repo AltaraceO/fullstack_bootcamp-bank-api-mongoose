@@ -15,6 +15,8 @@ export const NavBar = () => {
       <Link to="/transfer/">Transfer</Link>
       <span> | </span>
       <Link to="/delete/">Delete User</Link>
+      <span> | </span>
+      <Link to="/admin/">Admin Login</Link>
     </div>
   );
 };

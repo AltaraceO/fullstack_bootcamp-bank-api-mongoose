@@ -31,17 +31,15 @@ router.post("/admin/login", async (req, res) => {
   }
 });
 
-router.post("/admin/logoutAll"),
-  auth,
-  async (req, res) => {
-    try {
-      req.user.tokens = [];
-      await req.user.save();
-      res.send();
-    } catch (e) {
-      res.status(500).send();
-    }
-  };
+router.post("/admin/logoutAll", auth, async (req, res) => {
+  try {
+    req.admin.tokens = [];
+    await req.admin.save();
+    res.send("success!");
+  } catch (e) {
+    res.status(500).send();
+  }
+});
 
 router.post("/forgot", async (req, res, next) => {
   const { email } = req.body;
