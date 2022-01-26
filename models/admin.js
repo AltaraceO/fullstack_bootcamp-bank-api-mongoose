@@ -48,6 +48,7 @@ const adminSchema = new mongoose.Schema({
 
 //regular function because it is called with a this keyword for the specific instance of a user
 adminSchema.methods.generateAuthToken = async function () {
+  console.log(this, "and that");
   const admin = this;
   const token = jwt.sign({ _id: admin._id.toString() }, process.env.JWT_SECRET);
   admin.tokens = admin.tokens.concat({ token });
