@@ -77,7 +77,7 @@ export const AdminLogin = () => {
         />
         <br />
 
-        <button onClick={onHandleClick}>Submit</button>
+        <button onClick={onHandleClick}>Login</button>
       </form>
     </>
   );

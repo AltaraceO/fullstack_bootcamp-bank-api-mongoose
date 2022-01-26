@@ -7,12 +7,13 @@ const router = new express.Router();
 router.post("/admin", async (req, res) => {
   console.log(req.body);
   const admin = new Admin(req.body);
+  console.log("got here");
   try {
     await admin.save();
     const token = await admin.generateAuthToken();
     res.status(201).send({ user, token });
   } catch (e) {
-    res.status(400).send(e.message);
+    res.status(400).send(`${e.message} from here`);
   }
 });
 
