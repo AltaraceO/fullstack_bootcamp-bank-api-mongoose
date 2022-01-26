@@ -24,10 +24,10 @@ router.post("/admin/login", async (req, res) => {
       req.body.email,
       req.body.password
     );
-    console.log(admin, "this admin");
     //admin. is the particular instance of admin from above
     const token = await admin.generateAuthToken();
     res.send({ admin, token });
+    console.log(admin, "this admin", token);
   } catch (e) {
     res.status(400).send("where's the failure from?");
   }
