@@ -7,13 +7,13 @@ const router = new express.Router();
 router.post("/admin", async (req, res) => {
   console.log(req.body);
   const admin = new Admin(req.body);
-  console.log("got here");
+
   try {
     await admin.save();
     const token = await admin.generateAuthToken();
     res.status(201).send({ user, token });
   } catch (e) {
-    res.status(400).send(`${e.message} from here`);
+    res.status(400).send(`${e.message}`);
   }
 });
 
@@ -24,11 +24,12 @@ router.post("/admin/login", async (req, res) => {
       req.body.email,
       req.body.password
     );
+    console.log(admin, "this admin");
     //admin. is the particular instance of admin from above
     const token = await admin.generateAuthToken();
     res.send({ admin, token });
   } catch (e) {
-    res.status(400).send();
+    res.status(400).send("where's the failure from?");
   }
 });
 
