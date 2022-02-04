@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import url from "../api/Api";
 // import { withRouter } from "react-router";
@@ -36,8 +36,9 @@ export const AdminLogin = () => {
         { email, password },
         config
       );
-      console.log(data.token);
+      console.log(data.token, data.admin);
       localStorage.setItem("authToken", data.token);
+      // localStorage.removeItem("my_item_key"); //remove one item
       // history.push("/");
     } catch (e) {
       setError(e.message);

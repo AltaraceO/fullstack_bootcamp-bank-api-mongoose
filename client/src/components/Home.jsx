@@ -16,7 +16,7 @@ export const Home = () => {
 
   const logOutHandler = async (e) => {
     e.preventDefault();
-    //*tried to send the config alone and there was an issue with the backend seeing the headers Authorization so I created an empty body and sent it along so that the config comes in second
+    //*tried to send the config alone and there was an issue with the backend seeing the headers Authorization so I created an empty body and sent it along so that the config comes in second - able to send an empty obj{}
     const nothing = {
       bean: "bag",
     };
